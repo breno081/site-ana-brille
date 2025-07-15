@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ana Brillé Joias</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+  <!-- Incluindo Font Awesome para ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <header>
+    <img src="./Design sem nome.pngse.png" alt="Logo Ana Brillé" />
+    <nav class="main-nav">
+      <a href="#inicio">Início</a>
+      <a href="#colecoes">Coleções</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+      <a href="#cart" id="cart-icon">🛒 <span id="cart-count">0</span></a>
+    </nav>
+    <!-- Ícone do menu hamburger -->
+    <button class="hamburger" aria-label="Abrir menu">
+      <i class="fas fa-bars"></i>
+    </button>
+    <!-- Menu dropdown -->
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#inicio">Início</a>
+      <a href="#brincos">Brincos</a>
+      <a href="#aneis">Anéis</a>
+      <a href="#colares">Colares</a>
+      <a href="#conjuntos">Conjuntos</a>
+      <a href="#pulseiras">Pulseiras</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+      <a href="#cart">Carrinho</a>
+    </div>
+  </header>
+
+  <section class="banner" id="inicio">
+    <h1>Joias que fazem você brilhar</h1>
+    <a href="#colecoes">Ver Coleções</a>
+  </section>
+
+  <section class="section" id="colecoes">
+    <h2>Coleções em Destaque</h2>
+
+    <!-- Subseção: Brincos -->
+    <div class="category" id="brincos">
+      <h3>Brincos</h3>
+      <div class="products">
+        <div class="product">
+          <img src="./joia2.png" alt="Brinco Cravejado" />
+          <h3>Brinco Cravejado</h3>
+          <h4>R$ 99,99</h4>
+          <br>
+          <button class="add-to-cart" data-name="Brinco Cravejado" data-price="99.99">Adicionar ao Carrinho</button>
+        </div>
+        <div class="product">
+          <img src="./joia3.png" alt="Brinco Flor" />
+          <h3>Brinco Flor</h3>
+          <h4>R$ 99,99</h4>
+          <br>
+          <button class="add-to-cart" data-name="Brinco Flor" data-price="99.99">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subseção: Anéis -->
+    <div class="category" id="aneis">
+      <h3>Anéis</h3>
+      <div class="products">
+        <div class="product">
+          <img src="./joia1.png" alt="Anel Rose Gold" />
+          <h3>Anel Rose Gold</h3>
+          <h4>R$ 99,99</h4>
+          <br>
+          <button class="add-to-cart" data-name="Anel Rose Gold" data-price="99.99">Adicionar ao Carrinho</button>
+        </div>
+        <div class="product">
+          <img src="./anel2.png" alt="Anel Prata" />
+          <h3>Anel Prata</h3>
+          <h4>R$ 89,99</h4>
+          <br>
+          <button class="add-to-cart" data-name="Anel Prata" data-price="89.99">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subseção: Colares -->
+    <div class="category" id="colares">
+      <h3>Colares</h3>
+      <div class="products">
+        <div class="product">
+          <img src="./colar1.png" alt="Colar Lua" />
+          <h3>Colar Lua</h3>
+          <h4>R$ 129,99</h4>
+          <br>
+          <button class="add-to-cart" data-name="Colar Lua" data-price="129.99">Adicionar ao Carrinho</button>
+        </div>
+        <div class="product">
+          <img src="./colar2.png" alt="Colar Pérola" />
+          <h3>Colar Pérola</h3>
+          <h4>R$ 149,99</h4>
+          <br>
+          <button class="add-to-cart" data-name="Colar Pérola" data-price="149.99">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subseção: Conjuntos -->
+    <div class="category" id="conjuntos">
+      <h3>Conjuntos</h3>
+      <div class="products">
+        <div class="product">
+          <img src="./conjunto1.png" alt="Conjunto Brilho" />
+          <h3>Conjunto Brilho</h3>
+          <h4>R$ 199,99</h4>
+          <br>
+          <button class="add-to-cart" data-name="Conjunto Brilho" data-price="199.99">Adicionar ao Carrinho</button>
+        </div>
+        <div class="product">
+          <img src="./conjunto2.png" alt="Conjunto Elegance" />
+          <h3>Conjunto Elegance</h3>
+          <h4>R$ 219,99</h4>
+          <br>
+          <button class="add-to-cart" data-name="Conjunto Elegance" data-price="219.99">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subseção: Pulseiras -->
+    <div class="category" id="pulseiras">
+      <h3>Pulseiras</h3>
+      <div class="products">
+        <div class="product">
+          <img src="./pulseira1.png" alt="Pulseira Coração" />
+          <h3>Pulseira Coração</h3>
+          <h4>R$ 79,99</h4>
+          <br>
+          <button class="add-to-cart" data-name="Pulseira Coração" data-price="79.99">Adicionar ao Carrinho</button>
+        </div>
+        <div class="product">
+          <img src="./pulseira2.png" alt="Pulseira Infinito" />
+          <h3>Pulseira Infinito</h3>
+          <h4>R$ 89,99</h4>
+          <br>
+          <button class="add-to-cart" data-name="Pulseira Infinito" data-price="89.99">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção do Carrinho -->
+  <section class="section" id="cart" style="display: none;">
+    <h2>Seu Carrinho</h2>
+    <div id="cart-items"></div>
+    <h3>Total: R$ <span id="cart-total">0.00</span></h3>
+    <button id="clear-cart">Limpar Carrinho</button>
+    <a id="checkout-whatsapp" href="#" target="_blank">Finalizar no WhatsApp</a>
+  </section>
+
+  <section class="section" id="sobre">
+    <h2>Sobre a Ana Brillé</h2>
+    <p class="about">
+      A Ana Brillé nasceu do brilho dos sonhos.  
+      Cada joia é desenhada para refletir o poder, a delicadeza e a história única de quem a usa.  
+      Criamos peças autorais com acabamento impecável, feitas para durar e encantar.  
+      Aqui, cada detalhe importa — e cada cliente é tratada como única.  
+    </p>
+  </section>
+
+  <section class="section" id="contato">
+    <h2>Fale Conosco</h2>
+    <p class="about">
+      Dúvidas, pedidos personalizados ou parcerias?  
+      Estamos a um clique de distância:
+    </p>
+  </section>
+
+  <!-- Ícone flutuante do WhatsApp -->
+  <a href="https://wa.me/8192771986?text=Olá!%20Gostaria%20de%20falar%20com%20a%20Ana%20Brillé." target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <footer>
+    © 2025 Ana Brillé Joias. Todos os direitos reservados. <br/>
+    <a href="https://www.instagram.com/anabrillejoias?igsh=MTVyNXkzNHR5b2pmZw%3D%3D&utm_source=qr" target="_blank">Instagram</a> | <a href="./politica.html" target="_blank">Política de Trocas</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

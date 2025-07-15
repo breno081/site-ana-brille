@@ -1,0 +1,557 @@
+
+    .wpp {
+      color: #c49c68;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: #fefaf5;
+      color: #333;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 20px 40px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #c49c68;
+    }
+
+    .banner {
+      background-color: #c49c68;
+      background-size: contain;
+      background-position: center;
+      padding: 80px 40px;
+      text-align: center;
+      color: rgb(12, 12, 12);
+    }
+
+    .banner h1 {
+      color: rgba(255, 255, 255, 0.774);
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .banner a {
+      background-color: #080505b6;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 30px;
+    }
+
+    .section {
+
+      padding: 60px 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .product:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+
+    .product {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .product img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .product h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .product a {
+      background-color: #c49c68;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+
+    .about {
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    footer {
+      background-color: #222;
+      color: white;
+      padding: 40px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #c49c68;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    @media (max-width: 600px) {
+      .banner h1 {
+        font-size: 2rem;
+      }
+
+      nav a {
+        margin-left: 10px;
+        font-size: 0.9rem;
+      }
+    }
+    /* Estilo para o ícone do carrinho no header */
+#cart-icon {
+  position: relative;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #333;
+}
+
+#cart-count {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #ff4d4d;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.8rem;
+}
+
+/* Estilo para os botões de adicionar ao carrinho */
+.add-to-cart {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.add-to-cart:hover {
+  background-color: #45a049;
+}
+
+/* Estilo para a seção do carrinho */
+#cart {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#cart-items {
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-item button {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+#clear-cart {
+  background: #ff4d4d;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+#checkout-whatsapp {
+  background: #25D366;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-family: 'Lato', sans-serif;
+}
+
+/* Ícone flutuante do WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+  z-index: 1000;
+}
+
+.whatsapp-float i {
+  font-size: 1.8rem;
+}
+
+.whatsapp-float:hover {
+  background-color: #20b358;
+}
+
+/* Estilo para as subseções de categorias */
+.category {
+  margin-bottom: 40px;
+}
+
+.category h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #d4a373;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Ajuste para a grade de produtos (mantém o estilo existente) */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.product {
+  text-align: center;
+  padding: 15px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para as imagens dos produtos */
+.product img {
+  max-width: 100%;
+  max-height: 500px; /* Define a altura máxima das imagens */
+  width: auto;
+  height: auto;
+  border-radius: 5px;
+  object-fit: contain; /* Garante que a imagem não seja distorcida */
+}
+
+.product h3 {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.2rem;
+  margin: 10px 0 5px;
+}
+
+.product h4 {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  color: #d4a373;
+  margin: 0;
+}
+
+.add-to-cart {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.add-to-cart:hover {
+  background-color: #45a049;
+}
+
+/* Estilo para o header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header img {
+  max-width: 150px;
+}
+
+/* Estilo para a navegação principal */
+.main-nav {
+  display: flex;
+  gap: 15px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #333;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  transition: color 0.3s;
+}
+
+.main-nav a:hover {
+  color: #d4a373;
+}
+
+/* Estilo para o botão hamburger */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #333;
+  cursor: pointer;
+  padding: 10px;
+}
+
+/* Estilo para o menu mobile */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.mobile-menu.active {
+  display: block;
+  transform: translateX(0);
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 15px 20px;
+  text-decoration: none;
+  color: #333;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.mobile-menu a:hover {
+  background-color: #f9f9f9;
+  color: #d4a373;
+}
+
+/* Estilo para as imagens dos produtos */
+.product img {
+  max-width: 100%;
+  max-height: 150px;
+  width: auto;
+  height: auto;
+  border-radius: 5px;
+  object-fit: contain;
+}
+
+/* Estilo para as subseções de categorias */
+.category {
+  margin-bottom: 40px;
+}
+
+.category h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #d4a373;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.product {
+  text-align: center;
+  padding: 15px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product h3 {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.2rem;
+  margin: 10px 0 5px;
+}
+
+.product h4 {
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  color: #d4a373;
+  margin: 0;
+}
+
+.add-to-cart {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.add-to-cart:hover {
+  background-color: #45a049;
+}
+
+/* Estilo para o carrinho */
+#cart {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#cart-items {
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-item button {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+#clear-cart {
+  background: #ff4d4d;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+#checkout-whatsapp {
+  background: #25D366;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-family: 'Lato', sans-serif;
+}
+
+/* Ícone flutuante do WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+  z-index: 1000;
+}
+
+.whatsapp-float i {
+  font-size: 1.8rem;
+}
+
+.whatsapp-float:hover {
+  background-color: #20b358;
+}
+
+/* Media query para dispositivos móveis */
+@media (max-width: 768px) {
+  .main-nav {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+}
