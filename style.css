@@ -1,3 +1,8 @@
+.libertinus-mono-regular {
+  font-family: "Libertinus Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
 
     .wpp {
       color: #c49c68;
@@ -50,13 +55,15 @@
       text-align: center;
       color: rgb(12, 12, 12);
     }
+.banner h1 {
+  font-size: 6rem;
+  font-weight: normal;
+  letter-spacing: 1px;
+  color: #fff;
+  font-family: 'Libertinus Mono', monospace;
+  margin-bottom: 20px;
+}
 
-    .banner h1 {
-      color: rgba(255, 255, 255, 0.774);
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
 
     .banner a {
       background-color: #080505b6;
@@ -565,6 +572,7 @@ header img {
 }
 
 .product {
+  transition: all 0.3s ease;
   cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
   padding: 15px;
@@ -618,4 +626,117 @@ header img {
 
 .product.expanded .add-to-cart {
   display: block; /* Mostra o botão quando expandido */
+}
+
+/* Estilo para o botão de adicionar ao carrinho */
+.add-to-cart {
+  background-color: #4CAF50;
+  color: rgb(20, 19, 19);
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+@media (max-width: 600px) {
+  .banner h1 {
+    font-size: 3rem;
+  }
+}
+.product.expanded:hover {
+  transform: scale(1.75); /* Aumenta ainda mais o tamanho ao passar o mouse */
+}
+/* Estilo para o botão de adicionar ao carrinho */
+.add-to-cart:hover {
+  background-color: #104413;
+}
+/* Estilo para o botão hamburger */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #333;
+  cursor: pointer;
+  padding: 10px;
+}
+
+/* Estilo para o menu mobile */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 100px auto;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.modal-content img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.modal-content h2 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.modal-content p {
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.modal-content .add-to-cart {
+  background-color: #c49c68;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2rem;
+  color: #555;
+  cursor: pointer;
+}
+#product-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
 }

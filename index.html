@@ -5,9 +5,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ana Brillé Joias</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libertinus+Mono&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
   <!-- Incluindo Font Awesome para ícones -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <style>
+    /* Estilos básicos para o modal */
+    .modal {
+      display: none; /* Escondido por padrão */
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+    }
+    .modal-content img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+    }
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #333;
+    }
+    /* Opcional: botão add-to-cart modal estilizado */
+    #modal-add-to-cart {
+      background-color: #b8860b;
+      border: none;
+      padding: 12px 24px;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+    }
+    #modal-add-to-cart:hover {
+      background-color: #a07800;
+    }
+  </style>
 </head>
 
 <body>
@@ -39,7 +98,7 @@
   </header>
 
   <section class="banner" id="inicio">
-    <h1>Joias que fazem você brilhar</h1>
+    <h1>Ana Brillé</h1>
     <a href="#colecoes">Ver Coleções</a>
   </section>
 
@@ -51,7 +110,7 @@
       <h3>Brincos</h3>
       <div class="products">
         <div class="product">
-          <div class="product-content" onclick="toggleProduct(this)">
+          <div class="product-content">
             <img src="./joia2.png" alt="Brinco Cravejado" />
             <h3>Brinco Cravejado</h3>
             <h4>R$ 99,99</h4>
@@ -59,7 +118,7 @@
           <button class="add-to-cart" data-name="Brinco Cravejado" data-price="99.99">Adicionar ao Carrinho</button>
         </div>
         <div class="product">
-          <div class="product-content" onclick="toggleProduct(this)">
+          <div class="product-content">
             <img src="./joia3.png" alt="Brinco Flor" />
             <h3>Brinco Flor</h3>
             <h4>R$ 99,99</h4>
@@ -74,7 +133,7 @@
       <h3>Anéis</h3>
       <div class="products">
         <div class="product">
-          <div class="product-content" onclick="toggleProduct(this)">
+          <div class="product-content">
             <img src="./joia1.png" alt="Anel Rose Gold" />
             <h3>Anel Rose Gold</h3>
             <h4>R$ 99,99</h4>
@@ -82,7 +141,7 @@
           <button class="add-to-cart" data-name="Anel Rose Gold" data-price="99.99">Adicionar ao Carrinho</button>
         </div>
         <div class="product">
-          <div class="product-content" onclick="toggleProduct(this)">
+          <div class="product-content">
             <img src="./anel2.png" alt="Anel Prata" />
             <h3>Anel Prata</h3>
             <h4>R$ 89,99</h4>
@@ -97,7 +156,7 @@
       <h3>Colares</h3>
       <div class="products">
         <div class="product">
-          <div class="product-content" onclick="toggleProduct(this)">
+          <div class="product-content">
             <img src="./colar1.png" alt="Colar Lua" />
             <h3>Colar Lua</h3>
             <h4>R$ 129,99</h4>
@@ -105,7 +164,7 @@
           <button class="add-to-cart" data-name="Colar Lua" data-price="129.99">Adicionar ao Carrinho</button>
         </div>
         <div class="product">
-          <div class="product-content" onclick="toggleProduct(this)">
+          <div class="product-content">
             <img src="./colar2.png" alt="Colar Pérola" />
             <h3>Colar Pérola</h3>
             <h4>R$ 149,99</h4>
@@ -120,7 +179,7 @@
       <h3>Conjuntos</h3>
       <div class="products">
         <div class="product">
-          <div class="product-content" onclick="toggleProduct(this)">
+          <div class="product-content">
             <img src="./conjunto1.png" alt="Conjunto Brilho" />
             <h3>Conjunto Brilho</h3>
             <h4>R$ 199,99</h4>
@@ -128,7 +187,7 @@
           <button class="add-to-cart" data-name="Conjunto Brilho" data-price="199.99">Adicionar ao Carrinho</button>
         </div>
         <div class="product">
-          <div class="product-content" onclick="toggleProduct(this)">
+          <div class="product-content">
             <img src="./conjunto2.png" alt="Conjunto Elegance" />
             <h3>Conjunto Elegance</h3>
             <h4>R$ 219,99</h4>
@@ -143,7 +202,7 @@
       <h3>Pulseiras</h3>
       <div class="products">
         <div class="product">
-          <div class="product-content" onclick="toggleProduct(this)">
+          <div class="product-content">
             <img src="./pulseira1.png" alt="Pulseira Coração" />
             <h3>Pulseira Coração</h3>
             <h4>R$ 79,99</h4>
@@ -151,7 +210,7 @@
           <button class="add-to-cart" data-name="Pulseira Coração" data-price="79.99">Adicionar ao Carrinho</button>
         </div>
         <div class="product">
-          <div class="product-content" onclick="toggleProduct(this)">
+          <div class="product-content">
             <img src="./pulseira2.png" alt="Pulseira Infinito" />
             <h3>Pulseira Infinito</h3>
             <h4>R$ 89,99</h4>
@@ -196,8 +255,20 @@
 
   <footer>
     © 2025 Ana Brillé Joias. Todos os direitos reservados. <br/>
-    <a href="https://www.instagram.com/anabrillejoias?igsh=MTVyNXkzNHR5b2pmZw%3D%3D&utm_source=qr" target="_blank">Instagram</a> | <a href="./politica.html" target="_blank">Política de Trocas</a>
+    <a href="https://www.instagram.com/anabrillejoias?igsh=MTVyNXkzNHR5b2pmZw%3D%3D&utm_source=qr" target="_blank">Instagram</a> | 
+    <a href="./politica.html" target="_blank">Política de Trocas</a>
   </footer>
+
+  <!-- Modal de Produto -->
+  <div id="product-modal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="close" aria-label="Fechar modal">&times;</button>
+      <img id="modal-image" src="" alt="Imagem do produto" />
+      <h2 id="modal-title">Nome do Produto</h2>
+      <p id="modal-price">R$ 00,00</p>
+      <button id="modal-add-to-cart">Adicionar ao Carrinho</button>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
