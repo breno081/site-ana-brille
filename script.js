@@ -94,3 +94,29 @@ document.getElementById('clear-cart').addEventListener('click', () => {
 
 // Atualiza o carrinho ao carregar a página
 updateCart();
+function toggleProduct(element) {
+  const product = element.closest('.product');
+  const isExpanded = product.classList.contains('expanded');
+
+  // Fechar todos os outros produtos expandidos
+  document.querySelectorAll('.product.expanded').forEach(p => {
+    if (p !== product) {
+      p.classList.remove('expanded');
+    }
+  });
+
+  // Alternar o estado do produto clicado
+  product.classList.toggle('expanded', !isExpanded);
+}
+
+// Exemplo de integração com a funcionalidade do carrinho
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', () => {
+      const name = button.getAttribute('data-name');
+      const price = parseFloat(button.getAttribute('data-price'));
+      console.log(`Adicionando ${name} ao carrinho por R$${price}`);
+      // Adicione aqui a lógica existente do carrinho, se houver
+    });
+  });
+});
