@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ana Brillé Joias</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <img src="./Design sem nome.pngse.png" alt="Logo Ana Brillé" />
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#colecoes">Coleções</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+      <a href="#cart" id="cart-icon">🛒 <span id="cart-count">0</span></a>
+    </nav>
+  </header>
+
+  <section class="banner" id="inicio">
+    <h1>Joias que fazem você brilhar</h1>
+    <a href="#colecoes">Ver Coleções</a>
+  </section>
+
+  <section class="section" id="colecoes">
+    <h2>Coleções em Destaque</h2>
+    <div class="products">
+      <div class="product">
+        <img src="./joia1.png" alt="Anel Brillé" />
+        <h3>Anel Rose Gold</h3>
+        <h4>R$ 99,99</h4>
+        <br>
+        <button class="add-to-cart" data-name="Anel Rose Gold" data-price="99.99">Adicionar ao Carrinho</button>
+      </div>
+      <div class="product">
+        <img src="./joia2.png" alt="Colar Brillé" />
+        <h3>Brinco Cravejado</h3>
+        <h4>R$ 99,99</h4>
+        <br>
+        <button class="add-to-cart" data-name="Brinco Cravejado" data-price="99.99">Adicionar ao Carrinho</button>
+      </div>
+      <div class="product">
+        <img src="./joia3.png" alt="Brinco Brillé" />
+        <h3>Brinco Flor</h3>
+        <h4>R$ 99,99</h4>
+        <br>
+        <button class="add-to-cart" data-name="Brinco Flor" data-price="99.99">Adicionar ao Carrinho</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção do Carrinho -->
+  <section class="section" id="cart" style="display: none;">
+    <h2>Seu Carrinho</h2>
+    <div id="cart-items"></div>
+    <h3>Total: R$ <span id="cart-total">0.00</span></h3>
+    <button id="clear-cart">Limpar Carrinho</button>
+    <a id="checkout-whatsapp" href="#" target="_blank">Finalizar no WhatsApp</a>
+  </section>
+
+  <section class="section" id="sobre">
+    <h2>Sobre a Ana Brillé</h2>
+    <p class="about">
+      A Ana Brillé nasceu do brilho dos sonhos.  
+      Cada joia é desenhada para refletir o poder, a delicadeza e a história única de quem a usa.  
+      Criamos peças autorais com acabamento impecável, feitas para durar e encantar.  
+      Aqui, cada detalhe importa — e cada cliente é tratada como única.  
+    </p>
+  </section>
+
+  <section class="section" id="contato">
+    <h2>Fale Conosco</h2>
+    <p class="about">
+      Dúvidas, pedidos personalizados ou parcerias?  
+      Estamos a um clique de distância:
+      <br/><br/>
+      <a href="https://wa.me/8192771986?text=Olá!%20Gostaria%20de%20falar%20com%20a%20Ana%20Brillé." target="_blank" class="wpp" style="text-decoration: none;">👉 Falar no WhatsApp</a>
+    </p>
+  </section>
+
+  <footer>
+    © 2025 Ana Brillé Joias. Todos os direitos reservados. <br/>
+    <a href="#">Instagram</a> | <a href="#">TikTok</a> | <a href="#">Política de Trocas</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
