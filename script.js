@@ -1,12 +1,14 @@
 // Controle do menu hamburger
-document.querySelector('.hamburger').addEventListener('click', () => {
-  document.getElementById('mobile-menu').classList.toggle('active');
+const menuToggle = document.getElementById('menu-toggle');
+const hamburger = document.querySelector('.hamburger');
+hamburger.addEventListener('click', () => {
+  menuToggle.checked = !menuToggle.checked;
 });
 
-// Fechar o menu ao clicar em um link
-document.querySelectorAll('.mobile-menu a').forEach(link => {
+// Fecha o menu ao clicar em um link
+document.querySelectorAll('.main-nav a').forEach(link => {
   link.addEventListener('click', () => {
-    document.getElementById('mobile-menu').classList.remove('active');
+    menuToggle.checked = false;
   });
 });
 
@@ -34,24 +36,34 @@ function updateCart() {
   const cartItems = document.getElementById('cart-items');
   const cartTotal = document.getElementById('cart-total');
   const checkoutButton = document.getElementById('checkout-whatsapp');
+  const cartSection = document.getElementById('cart');
 
-  cartCount.textContent = cart.length;
+  // Atualiza contador
+  cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+  // Limpa lista de itens
   cartItems.innerHTML = '';
   let total = 0;
 
   if (cart.length === 0) {
     cartItems.innerHTML = '<p>Seu carrinho está vazio.</p>';
+    cartSection.style.display = 'none';
   } else {
     cart.forEach((item, index) => {
-      total += item.price;
+      total += item.price * item.quantity;
       const itemElement = document.createElement('div');
       itemElement.classList.add('cart-item');
       itemElement.innerHTML = `
-        ${item.name} - R$ ${item.price.toFixed(2)}
-        <button onclick="removeFromCart(${index})" aria-label="Remover ${item.name} do carrinho">Remover</button>
+        <span>${item.name} (x${item.quantity}) - R$ ${(item.price * item.quantity).toFixed(2)}</span>
+        <div>
+          <button onclick="updateQuantity(${index}, ${item.quantity - 1})" aria-label="Diminuir quantidade de ${item.name}">-</button>
+          <button onclick="updateQuantity(${index}, ${item.quantity + 1})" aria-label="Aumentar quantidade de ${item.name}">+</button>
+          <button onclick="removeFromCart(${index})" aria-label="Remover ${item.name} do carrinho">Remover</button>
+        </div>
       `;
       cartItems.appendChild(itemElement);
     });
+    cartSection.style.display = 'block';
   }
 
   cartTotal.textContent = total.toFixed(2);
@@ -59,16 +71,23 @@ function updateCart() {
   // Atualiza link para WhatsApp com mensagem formatada
   const message = encodeURIComponent(
     `Olá! Gostaria de comprar os seguintes itens:\n${cart
-      .map(item => `${item.name} - R$ ${item.price.toFixed(2)}`)
+      .map(item => `${item.name} (x${item.quantity}) - R$ ${(item.price * item.quantity).toFixed(2)}`)
       .join('\n')}\nTotal: R$ ${total.toFixed(2)}`
   );
   checkoutButton.href = `https://wa.me/8192771986?text=${message}`;
 
-  // Mostrar a seção carrinho só se tiver itens
-  document.getElementById('cart').style.display = cart.length > 0 ? 'block' : 'none';
-
   // Atualiza localStorage
   localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+// Atualiza a quantidade de um item no carrinho
+function updateQuantity(index, newQuantity) {
+  if (newQuantity <= 0) {
+    cart.splice(index, 1);
+  } else {
+    cart[index].quantity = newQuantity;
+  }
+  updateCart();
 }
 
 // Remove item do carrinho pelo índice e atualiza
@@ -112,7 +131,12 @@ document.querySelectorAll('.product-content').forEach(content => {
     // Configura o botão adicionar do modal
     modalAddToCart.onclick = () => {
       const numericPrice = parseFloat(price.replace('R$', '').replace(',', '.'));
-      cart.push({ name, price: numericPrice });
+      const existingItem = cart.find(item => item.name === name);
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({ name, price: numericPrice, quantity: 1 });
+      }
       updateCart();
       closeModalFunc();
     };
@@ -133,18 +157,30 @@ window.addEventListener('click', (e) => {
   }
 });
 
+// Fecha modal com a tecla Esc
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modal.style.display === 'flex') {
+    closeModalFunc();
+  }
+});
+
 // Evita que o clique no botão adicionar do produto abra o modal e adiciona direto ao carrinho
 document.querySelectorAll('.add-to-cart').forEach(button => {
   button.addEventListener('click', (e) => {
-    e.stopPropagation(); // impedir abrir modal
+    e.stopPropagation(); // Impedir abrir modal
     const name = button.getAttribute('data-name');
     const price = parseFloat(button.getAttribute('data-price'));
-    cart.push({ name, price });
+    const existingItem = cart.find(item => item.name === name);
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      cart.push({ name, price, quantity: 1 });
+    }
     updateCart();
   });
 });
 
-// Botão Finalizar no WhatsApp abre o link corretamente e alerta se o carrinho estiver vazio
+// Botão Finalizar no WhatsApp
 const checkoutButton = document.getElementById('checkout-whatsapp');
 checkoutButton.addEventListener('click', (e) => {
   if (cart.length === 0) {
@@ -152,8 +188,7 @@ checkoutButton.addEventListener('click', (e) => {
     alert('Seu carrinho está vazio!');
     return;
   }
-  // Previne comportamento padrão e abre em nova aba
-  e.preventDefault();
+  // Abre em nova aba
   window.open(checkoutButton.href, '_blank');
 });
 
@@ -163,7 +198,7 @@ window.addEventListener('DOMContentLoaded', () => {
   closeModalFunc();
 });
 
-// Efeito de hover para produtos (opcional)
+// Efeito de hover para produtos
 document.querySelectorAll('.product').forEach(product => {
   product.addEventListener('mouseover', () => {
     product.classList.add('hover');

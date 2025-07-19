@@ -70,32 +70,30 @@
 </head>
 
 <body>
-  <header>
-    <img src="./Design sem nome.pngse.png" alt="Logo Ana Brillé" />
-    <nav class="main-nav">
-      <a href="#inicio">Início</a>
-      <a href="#colecoes">Coleções</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#contato">Contato</a>
-      <a href="#cart" id="cart-icon">🛒 <span id="cart-count">0</span></a>
-    </nav>
-    <!-- Ícone do menu hamburger -->
-    <button class="hamburger" aria-label="Abrir menu">
-      <i class="fas fa-bars"></i>
-    </button>
-    <!-- Menu dropdown -->
-    <div class="mobile-menu" id="mobile-menu">
-      <a href="#inicio">Início</a>
-      <a href="#brincos">Brincos</a>
-      <a href="#aneis">Anéis</a>
-      <a href="#colares">Colares</a>
-      <a href="#conjuntos">Conjuntos</a>
-      <a href="#pulseiras">Pulseiras</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#contato">Contato</a>
-      <a href="#cart">Carrinho</a>
-    </div>
-  </header>
+<header>
+  <input type="checkbox" id="menu-toggle" />
+  <label for="menu-toggle" class="hamburger" aria-label="Abrir menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
+  <nav class="main-nav">
+    <ul>
+      <li><a href="#brincos">Brincos</a></li>
+      <li><a href="#aneis">Anéis</a></li>
+      <li><a href="#pulseiras">Pulseiras</a></li>
+      <li><a href="#conjuntos">Conjuntos</a></li>
+      <li><a href="#colares">Colares</a></li>
+    </ul>
+  </nav>
+  <a href="#cart" id="cart-icon" aria-label="Ver carrinho">
+  <i class="fas fa-shopping-cart"></i>
+  <span id="cart-count">0</span>
+</a>
+  
+</header>
+
 
   <section class="banner" id="inicio">
     <h1>Ana Brillé</h1>
@@ -115,7 +113,7 @@
             <h3>Brinco Cravejado</h3>
             <h4>R$ 99,99</h4>
           </div>
-          <button class="add-to-cart" data-name="Brinco Cravejado" data-price="99.99">Adicionar ao Carrinho</button>
+        
         </div>
         <div class="product">
           <div class="product-content">
@@ -123,7 +121,7 @@
             <h3>Brinco Flor</h3>
             <h4>R$ 99,99</h4>
           </div>
-          <button class="add-to-cart" data-name="Brinco Flor" data-price="99.99">Adicionar ao Carrinho</button>
+      
         </div>
       </div>
     </div>
@@ -138,7 +136,7 @@
             <h3>Anel Rose Gold</h3>
             <h4>R$ 99,99</h4>
           </div>
-          <button class="add-to-cart" data-name="Anel Rose Gold" data-price="99.99">Adicionar ao Carrinho</button>
+
         </div>
         <div class="product">
           <div class="product-content">
@@ -146,7 +144,7 @@
             <h3>Anel Prata</h3>
             <h4>R$ 89,99</h4>
           </div>
-          <button class="add-to-cart" data-name="Anel Prata" data-price="89.99">Adicionar ao Carrinho</button>
+
         </div>
       </div>
     </div>
@@ -161,7 +159,7 @@
             <h3>Colar Lua</h3>
             <h4>R$ 129,99</h4>
           </div>
-          <button class="add-to-cart" data-name="Colar Lua" data-price="129.99">Adicionar ao Carrinho</button>
+
         </div>
         <div class="product">
           <div class="product-content">
@@ -169,7 +167,7 @@
             <h3>Colar Pérola</h3>
             <h4>R$ 149,99</h4>
           </div>
-          <button class="add-to-cart" data-name="Colar Pérola" data-price="149.99">Adicionar ao Carrinho</button>
+
         </div>
       </div>
     </div>
@@ -184,7 +182,7 @@
             <h3>Conjunto Brilho</h3>
             <h4>R$ 199,99</h4>
           </div>
-          <button class="add-to-cart" data-name="Conjunto Brilho" data-price="199.99">Adicionar ao Carrinho</button>
+
         </div>
         <div class="product">
           <div class="product-content">
@@ -192,7 +190,7 @@
             <h3>Conjunto Elegance</h3>
             <h4>R$ 219,99</h4>
           </div>
-          <button class="add-to-cart" data-name="Conjunto Elegance" data-price="219.99">Adicionar ao Carrinho</button>
+          
         </div>
       </div>
     </div>
@@ -207,7 +205,7 @@
             <h3>Pulseira Coração</h3>
             <h4>R$ 79,99</h4>
           </div>
-          <button class="add-to-cart" data-name="Pulseira Coração" data-price="79.99">Adicionar ao Carrinho</button>
+
         </div>
         <div class="product">
           <div class="product-content">
@@ -215,7 +213,7 @@
             <h3>Pulseira Infinito</h3>
             <h4>R$ 89,99</h4>
           </div>
-          <button class="add-to-cart" data-name="Pulseira Infinito" data-price="89.99">Adicionar ao Carrinho</button>
+          
         </div>
       </div>
     </div>
