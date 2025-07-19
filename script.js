@@ -1,31 +1,27 @@
+// Log para confirmar que o script está sendo carregado
+console.log('Script carregado com sucesso.');
+
 // Controle do menu hamburger
 document.addEventListener('DOMContentLoaded', () => {
-  const menuToggle = document.getElementById('menu-toggle');
   const hamburger = document.querySelector('.hamburger');
   const mainNav = document.querySelector('.main-nav');
 
-  if (hamburger && menuToggle && mainNav) {
-    console.log('Hamburger, menu-toggle e main-nav encontrados no DOM.');
-    hamburger.addEventListener('click', () => {
-      console.log('Hamburger clicado, estado atual do checkbox:', menuToggle.checked);
-      menuToggle.checked = !menuToggle.checked;
-      if (menuToggle.checked) {
-        mainNav.classList.add('open');
-        hamburger.classList.add('open');
-      } else {
-        mainNav.classList.remove('open');
-        hamburger.classList.remove('open');
-      }
-      console.log('Novo estado do checkbox:', menuToggle.checked, 'Classe .open no main-nav:', mainNav.classList.contains('open'));
+  if (hamburger && mainNav) {
+    console.log('Hamburger e main-nav encontrados no DOM.');
+    hamburger.addEventListener('click', (e) => {
+      console.log('Hamburger clicado.');
+      hamburger.classList.toggle('open');
+      mainNav.classList.toggle('open');
+      console.log('Classe .open no main-nav:', mainNav.classList.contains('open'));
+      console.log('Classe .open no hamburger:', hamburger.classList.contains('open'));
     });
   } else {
-    console.error('Erro: Um ou mais elementos (.hamburger, #menu-toggle, .main-nav) não encontrados no DOM.');
+    console.error('Erro: Um ou mais elementos (.hamburger, .main-nav) não encontrados no DOM.');
   }
 
   // Fecha o menu ao clicar em um link
   document.querySelectorAll('.main-nav a').forEach(link => {
     link.addEventListener('click', () => {
-      menuToggle.checked = false;
       mainNav.classList.remove('open');
       hamburger.classList.remove('open');
       console.log('Link do menu clicado, menu fechado.');

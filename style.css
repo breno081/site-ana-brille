@@ -40,7 +40,7 @@ header img {
   justify-content: space-between;
   width: 30px;
   height: 21px;
-  z-index: 2000;
+  z-index: 3000;
 }
 
 .hamburger span {
@@ -61,7 +61,7 @@ header img {
 .main-nav {
   display: flex;
   gap: 15px;
-  z-index: 1999;
+  z-index: 2999;
 }
 
 .main-nav ul {
@@ -379,7 +379,7 @@ footer a {
     padding: 20px;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
-    z-index: 1999;
+    z-index: 2999;
     display: none;
     flex-direction: column;
     align-items: center;
