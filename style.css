@@ -40,7 +40,7 @@ header img {
   justify-content: space-between;
   width: 30px;
   height: 21px;
-  z-index: 1002;
+  z-index: 2000;
 }
 
 .hamburger span {
@@ -61,7 +61,7 @@ header img {
 .main-nav {
   display: flex;
   gap: 15px;
-  z-index: 1001;
+  z-index: 1999;
 }
 
 .main-nav ul {
@@ -95,6 +95,7 @@ header img {
   font-size: 1.5rem;
   text-decoration: none;
   color: #333;
+  z-index: 1000;
 }
 
 #cart-count {
@@ -370,34 +371,37 @@ footer a {
   }
   .main-nav {
     position: fixed;
-    top: 60px;
+    top: 80px;
     left: 0;
     width: 100%;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 80px);
     background: white;
     padding: 20px;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
-    z-index: 1001;
-  }
-  #menu-toggle:checked + .hamburger + .main-nav {
+    z-index: 1999;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #menu-toggle:checked ~ .main-nav {
     transform: translateX(0);
   }
   .main-nav ul {
     flex-direction: column;
     align-items: center;
+    width: 100%;
   }
   .main-nav li {
     margin: 20px 0;
   }
-  #menu-toggle:checked + .hamburger span:nth-child(1) {
+  #menu-toggle:checked ~ .hamburger span:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
   }
-  #menu-toggle:checked + .hamburger span:nth-child(2) {
+  #menu-toggle:checked ~ .hamburger span:nth-child(2) {
     opacity: 0;
   }
-  #menu-toggle:checked + .hamburger span:nth-child(3) {
+  #menu-toggle:checked ~ .hamburger span:nth-child(3) {
     transform: translateY(-9px) rotate(-45deg);
   }
   .products {
